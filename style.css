@@ -1,0 +1,109 @@
+:root {
+    --bg-color: #f4f4f9;
+    --card-pink: #ffccd5; /* Rosado pastel */
+    --card-purple: #a569bd; /* Morado */
+    --card-gray: #d5d8dc; /* Gris bloqueado */
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Barra de progreso */
+.progress-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 25px;
+    background-color: var(--card-purple);
+    width: 0%;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    font-size: 0.9rem;
+    transition: width 0.3s ease;
+}
+
+/* Contenedor de la malla (scroll horizontal si es muy ancha) */
+.malla-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+/* Columna del semestre */
+.semester-column {
+    min-width: 160px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.semester-title {
+    text-align: center;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Estilo de los ramos (cuadrados) */
+.subject-card {
+    background-color: var(--card-pink); /* Por defecto rosado */
+    padding: 15px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.85rem;
+    transition: transform 0.2s, background-color 0.3s;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.subject-card:hover {
+    transform: translateY(-2px);
+}
+
+/* ESTADO: Aprobado */
+.subject-card.approved {
+    background-color: var(--card-purple);
+    color: white;
+    text-decoration: line-through; /* Tachado */
+    opacity: 0.9;
+}
+
+/* ESTADO: Bloqueado (Pre-requisito no cumplido) */
+.subject-card.locked {
+    background-color: var(--card-gray);
+    color: #888;
+    cursor: not-allowed;
+    pointer-events: none; /* No se puede clickear */
+}
